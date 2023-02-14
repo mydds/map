@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="globalmap.css" >
+       <!-- <nav>
+            <a href="#" id="home-link">Home</a>
+            <a href="#" id="dark-mode-link">Dark Mode</a>  
+        </nav>-->
+    </head>
+    <body>
+
+        <div id="container1">
+          <!--  <div id="filters">
+  <label for="category-select">Category:</label>
+  <select id="category-select"></select>
+  <label for="crypto-select">Crypto:</label>
+  <select id="crypto-select"></select>
+</div>-->
+        <!--<div id="project-details" style="display: none;"></div>-->
+    <div class="clickbox">
+    <button class="close-button">X</button>
+    <!-- other elements here -->
+    </div>
+         
+             <!-- Add a button to the bottom left corner of the screen -->
+<button id="add-button">+</button>
+
+<!-- Add a form to add a new project to the Firebase database -->
+<form id="add-form" style="display:none">
+  <button class="close-button" onclick="document.querySelector('#add-form').style.display = 'none';">X</button>
+  <!--<label for="key">Key:</label>
+  <input type="text" id="key">-->
+  <label for="title">Title:</label>
+  <input type="text" id="title">
+  <label for="location">Location:</label>
+  <input type="text" id="location">
+  <label for="link">Link:</label>
+  <input type="text" id="link">
+  <label for="blurb">Blurb:</label>
+  <input type="text" id="blurb">
+  <input type="submit" value="Add">
+</form>
+        </div>
+       <div class="dark-mode-toggle">
+  <input type="checkbox" class="dark-mode-toggle__checkbox" id="dark-mode-toggle">
+  <label class="dark-mode-toggle__label" for="dark-mode-toggle"></label>
+</div>
+        
+       
+
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+        <script src="/d3.min.js"></script>
+        <script src="/topojson.min.js"></script>
+        <script src="/datamaps.world.hires.min.js"></script>
+        <script src="globalmapdark.js"></script>
+    </body>
+</html>
