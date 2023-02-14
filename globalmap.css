@@ -1,0 +1,429 @@
+/*.hoverinfo.active {
+        background-color: #fff;
+        color: #000;
+        font-size: 14px;
+    font-family:"Montserrat";
+        padding: 10px;
+    margin:10px;
+        border: 1px solid #fff;
+        position: absolute;
+        top: 5px;
+        left:140px;
+        width: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    
+    }
+.hoverinfo {
+  display: none;
+}*/
+
+.hoverinfo {
+  display: block;
+    background-color: #fff;
+    color: #000;
+    font-size: 14px;
+    font-family:"Montserrat";
+    padding: 10px;
+    margin:10px;
+    border: 1px solid #fff;
+    position: absolute;
+    top: 5px;
+    left:100px;
+    width: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.hoverinfo.show{
+  display:block;
+}
+
+.hoverinfo img {
+    float: left;
+    margin-right: 0px;
+    }
+#container1 {
+    width: 90%;
+    height: 85%;
+    margin: 0 auto;
+    /*padding-right:50px;*/
+    position: absolute;
+  top: 20px;
+  right: 70px;
+    padding-right:50px;
+    }
+  
+li {
+  padding-right: 20px; /* or any other value */
+    line-height: 1.3em;
+    white-space: nowrap;
+}
+
+/*.hoverinfo li {
+    list-style-position: inside;
+    padding-left: 0;
+}*/
+        
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: whitesmoke;
+  color: #000;
+  padding: 3px;
+            width:100%;
+}
+
+nav a {
+  color: #000;
+  text-decoration: none;
+  margin-right: 10px;
+    font-size: 7px;
+}
+
+/* Add this class to the body to enable dark mode */
+.dark-mode {
+  background-color: #181818; /*#1f1f1f;*/
+}
+
+.dark-mode nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3c3c3d;
+  color: #fff;
+  padding: 3px;
+            width:100%;
+}
+.dark-mode nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 10px;
+    font-size: 7px;
+}
+
+.dark-mode.clickbox {
+    position: absolute;
+    top: 19%;
+    left:50%;
+    width:auto;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    color: whitesmoke;
+    font-size: 14px;
+    font-family: "Montserrat";
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid lightgray;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    padding-right:40px;
+}
+
+.dark-mode .hoverinfo {
+  display: block;
+    background-color: #222;
+    color: #fff;
+    font-size: 12px;
+    font-family:"Montserrat";
+    padding: 10px;
+    margin:10px;
+    border: 1px solid #fff;
+    position: absolute;
+    top: 5px;
+    left:100px;
+    width: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/*
+        @media only screen and (max-width: 600px) {
+    #container1 {
+        width: 90vw;
+        height: 70vh;
+    }
+}
+        @media only screen and (min-width: 1000px) {
+    #container1 {
+        width: 1000px;
+        
+    }
+}
+*/
+
+
+/*
+ #project-details {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    display: none;
+}
+      
+.datamaps-hoverover {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px;
+    z-index: 100;
+}*/
+/*
+.popup-active {
+    visibility: visible;
+}*/
+/*
+.datamaps-hoverover {
+  display: none;
+  position: absolute;
+  z-index: 1000;
+  pointer-events: none;
+}
+.datamaps-hoverover {
+  top: 10px;
+  left: 10px;
+}
+
+.clickpopup {
+    position: absolute;
+    top: 5px;
+    left: 150px;
+    width: auto;
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    font-family: "Montserrat";
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+   display: none;
+}*/
+
+
+.clickbox {
+    position: absolute;
+    top: 19%;
+    left:50%;
+    width:auto;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: dimgray;
+    font-size: 14px;
+    font-family: "Montserrat";
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid lightgray;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    padding-right:40px;
+}
+
+.close-button {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    background-color: white;
+    color: dimgray;
+    padding: 2px 2px;
+    border: none;
+    cursor: pointer;
+}
+
+.clickbox a:hover::after {
+    content: attr(title); /* Display the title attribute as the content */
+    position: absolute; /* Position the text */
+    padding: 5px;
+    background: black;
+    color: white;
+    z-index: 1; /* Ensure the text is above the link */
+    width:200px;
+    font-size:10px;
+    opacity: 1;
+    white-space: pre-wrap;
+   
+}
+
+.clickbox a:link {
+  color: darkslategrey;
+    text-decoration:none;
+}
+
+.dark-mode .clickbox a:link {
+  color: ghostwhite;
+    text-decoration:none;
+}
+
+/*DARK MODE TOGGLE CODE BELOW*/
+.dark-mode-toggle {
+  position: absolute;
+  bottom: 70px;
+  right: 60px;
+    
+}
+
+.dark-mode-toggle__checkbox {
+  display: none;
+}
+
+.dark-mode-toggle__label {
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: #ccc;
+    /*background: url(/images/moon.svg); 
+        background-size:18px;*/
+    /*background: ('/images/moon.svg');*/
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode-toggle__label::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: whitesmoke;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.2s;
+}
+
+.dark-mode-toggle__checkbox:checked + .dark-mode-toggle__label {
+  background-color: #666;
+}
+
+.dark-mode-toggle__checkbox:checked + .dark-mode-toggle__label::before {
+  transform: translateX(19px);
+}
+
+
+body.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+
+/* Position the dropdown menus 
+#crypto-select, #category-select {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}*/
+
+/* Style the dropdown menus 
+select {
+    width: 150px;
+    height: 30px;
+    font-size: 16px;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 4px;
+}
+
+form#filters {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+form#filters label {
+  display: block;
+}*/
+
+/*
+#add-button {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    background-color: lightgray; 
+    color: white;
+    padding: 5px 5px;
+    text-align: center;
+    border-radius:70%;
+    border: 1px dimgray;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}*/
+
+/* Style the form container */
+#add-form {
+    position: fixed;
+    top: 63%;
+    left: 12%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    display: none;
+    font-family:"Montserrat";
+    font-size:12px;
+    color:dimgray;
+}
+
+/* Style the form inputs */
+#add-form label, #add-form input {
+    display: block;
+    margin: 10px 0;
+    width: 90%;
+}
+
+/* Style the "X" close button */
+#add-form .close-button {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 15px;
+    color: gray;
+    cursor: pointer;
+}
+
+
+/* style the submit button */
+#add-form input[type="submit"] {
+  background-color: dimgray;
+  color: white;
+  cursor: pointer;
+}
+
+#add-button {
+    position: fixed;
+    bottom: 50px;
+    left: 50px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: lightgray;
+    border:none;
+    color: black;
+    font-size: 18px;
+    text-align: center;
+    line-height: 0px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Add Button Hover Effect */
+#add-button:hover {
+    background-color: slategray;
+    color:white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+.hidden {
+  display: none;
+}
+

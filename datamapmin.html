@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+    <style>
+    .hoverinfo {
+        background-color: #fff;
+        color: #000;
+        font-size: 12px;
+        padding: 10px;
+        border: 1px solid #fff;
+        position: absolute;
+        top: 20px;
+        left: 40px;
+        width: 150px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    
+    }
+        .hoverinfo img {
+        float: left;
+        margin-right: 10px;
+    }
+            #container1 {
+        width: 100vw;
+        height: 85vh;
+                margin: 0 auto;
+    }
+  
+        @media only screen and (max-width: 600px) {
+    #container1 {
+        width: 90vw;
+        height: 70vh;
+    }
+}
+        @media only screen and (min-width: 1000px) {
+    #container1 {
+        width: 1000px;
+        
+    }
+}
+
+        
+        nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: whitesmoke;
+  color: #000;
+  padding: 3px;
+}
+
+nav a {
+  color: #000;
+  text-decoration: none;
+  margin-right: 10px;
+    font-size: 7px;
+}
+
+/* Add this class to the body to enable dark mode */
+.dark-mode {
+  background-color: #111;
+}
+
+        
+</style>
+<nav>
+  <a href="#" id="home-link">Home</a>
+  <a href="#" id="dark-mode-link">Dark Mode</a>
+</nav>
+
+</head>
+<body>
+  <script src="/d3.min.js"></script>
+  <script src="/topojson.min.js"></script>
+  <!-- I recommend you host this file on your own, since this will change without warning -->
+  <script src="/datamaps.world.hires.min.js"></script>
+
+  <!--<div id="container1" style="position: relative; margin: 0 auto; width: 800px; height: 600px;"></div>-->
+    
+<div id="container1"></div>
+
+  
+  <!-- Add as many pattern definitions (defs) as you'd like, make sure to include an ID -->
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+
+       <!-- Gradient pattern. Wouldn't really recommend this one. -->
+     <linearGradient id="gradient">
+        <stop offset="5%" stop-color="#F60" />
+        <stop offset="95%" stop-color="#FF6" />
+     </linearGradient>
+    
+</svg>
+     
+     <script>
+      var election = new Datamap({
+        scope: 'world',
+        element: document.getElementById('container1'),
+        projection: 'mercator',
+        
+        fills: {
+          defaultFill: 'lightblue',
+          lt50: '#11FFBF',
+          gt50: 'orange',
+          gradient: 'url(#gradient)',
+          darkblue50: '#11B7FF',
+        },
+        
+        data: {
+            ARG: {fillKey: 'lt50' },
+            BRA: {fillKey: 'darkblue50' }
+          
+        },
+        geographyConfig: {
+        popupTemplate: function(geography, data) {
+            var name = geography.id;
+            var fullname = geography.properties.name;
+            var image = "images/default.jpg";
+            switch(name) {
+                case 'USA':
+                    image = "images/USA.jpg";
+                    break;
+                case 'CAN':
+                    image = "images/CAN.jpg";
+                    break;
+                case 'BRA':
+                    image = "images/BRA.jpg";
+                    break;
+                            default:
+            image = null;
+            }
+            return '<div class="hoverinfo">' +
+                fullname + '<br>' +
+                (image ? '<img src="'+ image +'" width="150px"></img>' : '') +
+                '</div>';
+        }
+    },
+     /*     geographyConfig: {
+        popupTemplate: function(geography, data) {
+            return '<div class="hoverinfo">' +
+                geography.properties.name + '<br>' +
+                '<img src="path/to/image.png" alt="Custom Image" width="50" height="50"></img>' +
+                'Insert Custom text here' +
+                '</div>';
+        }
+    },*/
+      });
+          // use d3.js to select all paths of the countries
+    d3.selectAll("path")
+        // add a click event listener to each path
+        .on("click", function(d) {
+            // get the ISO 3166-1 alpha-3 code of the clicked country
+            var id = d3.select(this).attr("class").split(" ")[1];
+            // redirect the user to the appropriate link
+            switch (id) {
+                case 'CAN':
+                    window.location.href = 'https://www.canada.ca/';
+                    break;
+                case 'USA':
+                    window.location.href = 'https://www.usa.gov/';
+                    break;
+                case 'BRA':
+                    window.location.href = 'https://www.brasil.gov.br/';
+                    break;
+                default:
+                    break;
+            }
+        });
+         
+         // Add a click event listener to the Dark Mode link
+document.getElementById('dark-mode-link').addEventListener('click', function() {
+  // Toggle the 'dark-mode' class on the body
+  document.body.classList.toggle('dark-mode');
+});
+
+     </script>
+</body>
